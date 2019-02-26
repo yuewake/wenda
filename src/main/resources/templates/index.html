@@ -2,12 +2,22 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta charset="utf-8">
+		<link rel="stylesheet" th:href="@{css/style.css}" />
 		<title>主页</title>
 	</head>
 	<body>
-		<div>
-			<div th:include = "header"></div>
-			<div>hello</div>
+		<header>
+			<div>
+				<div th:include = "header"></div>
+			</div>
+		</header>
+
+		<div class = "about">
+			这是一个测试
+		</div>
+
+		<div class = "about2">
+			第二个框框
 		</div>
 	</body>
 </html>

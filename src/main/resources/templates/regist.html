@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"></meta>
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{css/style.css}" />
+    <title>
+        注册
+    </title>
+</head>
+<body>
+<div class="container">
+    <div class="col-md-6 col-md-offset-3" id="form-container">
+        <h1 class="text-center">
+            用 户 注 册
+        </h1>
+        <form th:action="@{/regist}" class="form-inline" method="post"  role="form">
+            <div class="form-group" style="padding-bottom: 8px;">
+                <label class="col-md-6 text-center" for="username">
+                    &nbsp;&nbsp;&nbsp;用户名 :
+                </label>
+                <div class="col-md-6">
+                    <input class="form-control" id="username" name="username"  required="true"
+                           type="text"/>
+                    <p id="telephoneError" style="margin-bottom: -2px;color: red;">
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group" style="padding-bottom: 8px;">
+                <label class="col-md-6 text-center" for="password">
+                    密      码 :
+                </label>
+                <div class="col-md-6">
+                    <input class="form-control" id="password" name="password" onblur="checkPassword()" required="true"
+                           type="password"/>
+                    <p id="passwordError" style="margin-bottom: -2px;color: red;">
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group" style="padding-bottom: 8px;">
+                <label class="col-md-6 text-center" for="rePassword">
+                    重复密码:
+                </label>
+                <div class="col-md-6">
+                    <input class="form-control" id="rePassword" name="rePassword" onblur="checkrePassword()"
+                           required="true" type="password"/>
+                    <p id="rePasswordError" style="margin-bottom: -2px;color: red;">
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group" style="padding-bottom: 8px;">
+                <label class="col-md-6 text-center" for="email">
+                    邮      箱 :
+                </label>
+                <div class="col-md-6">
+                    <input class="form-control" id="email" name="email" onblur="checkEmail()" required="true"
+                           type="text"/>
+                    <p id="emailError" style="margin-bottom: -2px;color: red;">
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6" style="margin-bottom: 8px">
+                <input class="btn btn-primary btn-block" type="submit" value="注册"/>
+
+            </div>
+
+            <div class="col-lg-6" style="margin-bottom: 18px">
+                <a class="btn btn-primary btn-block" href="index.html">
+                    已有账号
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script th:src="@{js/jquery-3.3.1.js}" ></script>
+<script th:src="@{js/common.js}" ></script>
+</html>

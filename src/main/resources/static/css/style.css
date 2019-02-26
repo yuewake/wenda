@@ -1,8 +1,38 @@
-header {
-    position: relative;
-}
+
+
 .about {
-    position: relative;
-    border: 2px solid red;
-    margin: 100px 0px;
+    text-align: center;
+    padding: 100px 0px;
+    border: 1px solid #eeeeee;
+    margin: 50px 0px 0px 0px;
+}
+
+.about2 {
+    text-align: center;
+    padding: 100px 0px;
+    border: 1px solid #eeeeee;
+    background-color: rgba(110, 74, 77, 0.16);
+}
+
+#login {
+
+}
+
+/*
+ * 表单总体布局
+ */
+#form-container {
+    margin-top: 100px;
+    border-radius: 20px;
+    border-style: groove;
+    border-width: 5px;
+    border-color: #00CCFF;
+}
+
+/*
+ * 标签
+ */
+label {
+    font-family: "微软雅黑";
+    font-size: 20px;
 }
