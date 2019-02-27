@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8"></meta>
     <link rel="stylesheet" th:href="@{css/bootstrap.css}"/>
@@ -14,6 +14,7 @@
         <h1 class="text-center">
             用 户 注 册
         </h1>
+        <h5 class="text-center text-danger"  th:if="${msg}" th:text="${msg}"></h5>
         <form th:action="@{/regist}" class="form-inline" method="post"  role="form">
             <div class="form-group" style="padding-bottom: 8px;">
                 <label class="col-md-6 text-center" for="username">
@@ -70,7 +71,7 @@
             </div>
 
             <div class="col-lg-6" style="margin-bottom: 18px">
-                <a class="btn btn-primary btn-block" href="index.html">
+                <a class="btn btn-primary btn-block" th:href="@{/toLogin}">
                     已有账号
                 </a>
             </div>

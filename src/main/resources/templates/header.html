@@ -17,7 +17,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">安家</a>
+					<a class="navbar-brand" th:href="@{/}">安家</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -48,7 +48,12 @@
 						<button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search"></span> 查询</button>
 					</form>
 
-					<ul class="nav navbar-nav navbar-right">
+					<ul th:if="${user} != null" class="nav navbar-nav navbar-right">
+						<li><a href="#" th:text="'您好，' + ${user.username}"></a></li>
+						<li><a th:href="@{/logout}">退出</a></li>
+					</ul>
+
+					<ul th:if="${user} == null" class="nav navbar-nav navbar-right">
 						<li><a th:href="@{/toRegist}"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
 						<li><a th:href="@{/toLogin}"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
 					</ul>
