@@ -1,10 +1,12 @@
-
+.question {
+    margin: 60px 0px 0px 0px;
+    padding: 0px 400px;
+}
 
 .about {
-    text-align: center;
-    padding: 100px 0px;
     border: 1px solid #eeeeee;
-    margin: 50px 0px 0px 0px;
+    background-color: white;
+    padding: 0px 20px 20px 20px;
 }
 
 .about2 {
@@ -12,10 +14,6 @@
     padding: 100px 0px;
     border: 1px solid #eeeeee;
     background-color: rgba(110, 74, 77, 0.16);
-}
-
-#login {
-
 }
 
 /*

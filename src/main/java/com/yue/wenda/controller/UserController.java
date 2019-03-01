@@ -42,7 +42,7 @@ public class UserController {
                 c.setMaxAge(3600*24*5);//过期时间设置为5天；
                 response.addCookie(c);
                 //TODO 如果next不为空， 就跳到next的页面。
-                return "index";
+                return "redirect:/";
             }else {
                 map.put("msg", "登陆失败，可能的原因是用户名或密码为空，用户名不存在或密码错误");
                 model.addAttribute("msg", map.get("msg"));
@@ -76,7 +76,7 @@ public class UserController {
         try {
             Map<String, Object> map = userService.regist(user);
             if(map.isEmpty()){
-                return "index";
+                return "redirect:/";
             }else{
                 model.addAttribute("msg",map.get("msg"));
                 return "regist";
@@ -105,4 +105,6 @@ public class UserController {
     public String toLogin() {
         return "login";
     }
+
+
 }

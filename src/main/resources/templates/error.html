@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{css/bootstrap.css}"/>
+    <script th:src="@{js/jquery-3.3.1.js}" ></script>
+    <script th:src="@{js/bootstrap.js}" ></script>
     <title>Title</title>
 </head>
 <body>
-    <div>404</div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>404!</h1>
+            <p>你似乎来到了没有知识存在的荒原…</p>
+            <p><a class="btn btn-primary btn-lg" th:href="@{/}" role="button">返回主页</a></p>
+        </div>
+    </div>
 </body>
 </html>

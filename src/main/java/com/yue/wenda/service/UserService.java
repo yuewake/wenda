@@ -86,4 +86,7 @@ public class UserService {
         loginTicketDao.updateStatus(ticket, 1);
     }
 
+    public User getUser(int userId) {
+        return userDao.selectById(userId);
+    }
 }

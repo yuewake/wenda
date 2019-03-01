@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Created by yue on 2019/2/28
+ */
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
 
