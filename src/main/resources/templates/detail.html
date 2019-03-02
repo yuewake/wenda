@@ -6,6 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
     <script th:src="@{/js/jquery-3.3.1.js}"  ></script>
     <script th:src="@{/js/bootstrap.js}"  ></script>
+
     <style>
         a.hover-blue {
             text-decoration: none;
@@ -38,7 +39,7 @@
     <form th:action="@{/addComment}" method="post">
         <input type="hidden" name="questionId" th:value="${question.id}">
         <div class="form-group">
-            <textarea name="content" class="form-control" rows="3"></textarea>
+            <textarea id="summernote" name="content" class="form-control" rows="3"></textarea>
         </div>
         <button style="float: right" class="btn btn-primary" type="submit">提交回答</button>
     </form>
@@ -47,11 +48,11 @@
 <div class="question">
 
     <div class="about" th:each="vos:${vos}">
-        <h4 th:text="${vos.objs['user'].username}" style="color: rgba(59,13,11,0.51)">Alan Fang</h4>
+        <h4 th:text="${vos.objs['user'].username}"  style="color: rgba(59,13,11,0.51)">Alan Fang</h4>
         <p style="margin: 10px 0px" th:text="${vos.objs['comment'].content}">在英国千万别做什么？在英国千万别做什么？在英国千万别做什么？在英国千万别做什么？在英国千万别做什么？在英国千万别做什么？</p>
         <span th:text="${#dates.format(vos.objs['comment'].createdDate, 'yyyy-MM-dd HH:mm:ss')}" style="color: rgba(59,13,11,0.51)">发布于2019-2-28 10:57</span><br/><br/>
-        <a class="btn btn-info" href="#"><span class="glyphicon glyphicon-heart"></span> 赞同 3.4K</a>&nbsp;
-        <a href="#" class="btn btn-info"><span class="glyphicon glyphicon-chevron-down"></span></a>&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-info" th:id="'comment'+ ${{vos.objs['comment'].id}}" href="javascript:void(0)" th:text="'赞同 ' + ${vos.objs['like']}" th:onclick="|updateUP(${vos.objs['comment'].id})|" ><span class="glyphicon glyphicon-heart"></span> 赞同 3.4K</a>&nbsp;
+        <a th:onclick="|updateDOWN(${vos.objs['comment'].id})|" href="javascript:void(0)" class="btn btn-info"><span class="glyphicon glyphicon-chevron-down"></span></a>&nbsp;&nbsp;&nbsp;
         <a href="#" >10 条评论</a>
     </div>
 
@@ -90,6 +91,38 @@
 <script>
     function showAnswer() {
         document.getElementById("answer").style.display="";
+    }
+
+    function updateUP(commentId) {
+        var cid = "#comment" + commentId;
+        $.ajax({
+            type: "get",
+            url: "/like?commentId=" + commentId,
+            contentType: "application/json;charset=utf-8",
+            dataType:"json",
+            success:function (data) {
+                $(cid).html("赞同 " + data.msg);
+            },
+            error:function (message) {
+                alert("提交失败"+JSON.stringify(message));
+            }
+        });
+    }
+    
+    function updateDOWN(commentId) {
+        var cid = "#comment" + commentId;
+        $.ajax({
+            type: "get",
+            url: "/dislike?commentId=" + commentId,
+            contentType: "application/json;charset=utf-8",
+            dataType:"json",
+            success:function (data) {
+                $(cid).html("赞同 " + data.msg);
+            },
+            error:function (message) {
+                alert("提交失败"+JSON.stringify(message));
+            }
+        });
     }
 </script>
 </body>

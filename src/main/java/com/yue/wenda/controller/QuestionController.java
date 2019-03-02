@@ -3,6 +3,7 @@ package com.yue.wenda.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.yue.wenda.model.*;
 import com.yue.wenda.service.CommentService;
+import com.yue.wenda.service.LikeService;
 import com.yue.wenda.service.QuestionService;
 import com.yue.wenda.service.UserService;
 import com.yue.wenda.util.WendaUtil;
@@ -36,6 +37,8 @@ public class QuestionController {
     @Autowired
     CommentService commentService;
 
+    @Autowired
+    LikeService likeService;
     /**
      * 提问 必须登陆才能提问
      * @param title 问题标题
@@ -72,10 +75,12 @@ public class QuestionController {
         List<ViewObject> vos = new LinkedList<>();
         //1获取该问题的所有评论
         List<Comment> comments = commentService.getCommentsByEntity(id, EntityType.ENTITY_QUESTION);
-        //2 遍历评论comments 获取每一条评论的用户信息 将其存到viewObject对象中
+        //2 遍历评论comments 获取每一条评论的用户信息和点赞数 将其存到viewObject对象中
         for (Comment comment: comments) {
+            long like = likeService.getLikeCount(EntityType.ENTITY_COMMENT, comment.getId());
             ViewObject vo = new ViewObject();
             User user = userService.getUser(comment.getUserId());
+            vo.set("like", like);
             vo.set("user", user);
             vo.set("comment", comment);
             vos.add(vo);
