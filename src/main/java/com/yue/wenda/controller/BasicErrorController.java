@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class BasicErrorController implements ErrorController {
 
     @Override
-    @RequestMapping("error")
+    @RequestMapping(value = "error")
     public String getErrorPath() {
         return "error";
     }

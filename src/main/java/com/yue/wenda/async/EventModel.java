@@ -8,8 +8,8 @@ import java.util.Map;
  */
 public class EventModel {
 
-    private EventType eventType;
-    private int userId;
+    private EventType eventType;//触发的事件类型
+    private int userId; //触发该事件的人
     private int entityType;
     private int entityId;
     private int entityOwnerId;
@@ -62,5 +62,6 @@ public class EventModel {
     public void setEntityOwnerId(int entityOwnerId) {
         this.entityOwnerId = entityOwnerId;
     }
+
 
 }

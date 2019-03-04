@@ -27,6 +27,9 @@ public class LikeService {
 
     /**
      * 获取某一用户对某一评论是点赞还是踩
+     * 如果是点赞返回1
+     * 如果是踩返回-1
+     * 什么都不是的话返回0
      * @param userId
      * @param entityType
      * @param entityId

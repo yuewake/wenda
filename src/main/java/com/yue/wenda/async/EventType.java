@@ -5,7 +5,7 @@ package com.yue.wenda.async;
  * 事件类型
  */
 public enum EventType {
-    LIKE(0),COMMENT(1),LOGIN(2),MAIL(3),DISLIKE(4);
+    LIKE(0),COMMENT(1),LOGIN(2),MAIL(3),DISLIKE(4),FOLLOW(5);
 
     private int value;
     EventType(int value){
